@@ -16,7 +16,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&auto_shift>, <&auto_shift>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 18 19 20 21 25 26 27 28 29 30 31 6 7 8 9 32 33 34 22 10>;
         };
     };
 
@@ -46,10 +48,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6      &kp N7            &kp N8    &kp N9     &kp N0  &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT    &kp DOWN          &kp UP    &kp RIGHT  &trans  &trans
-&none  &bt BT_CLR    &trans        &trans        &trans        &trans          &trans      &trans            &trans    &trans     &trans  &trans
-                                   &kp LGUI      &trans        &kp SPACE       &kp DELETE  &kp LEFT_CONTROL  &kp RALT
+&none  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6         &kp N7            &kp N8    &kp N9     &kp N0  &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT       &kp DOWN          &kp UP    &kp RIGHT  &trans  &trans
+&none  &bt BT_CLR    &trans        &trans        &trans        &trans          &trans         &trans            &trans    &trans     &trans  &trans
+                                   &kp LGUI      &trans        &kp SPACE       &kp BACKSPACE  &kp LEFT_CONTROL  &kp RALT
             >;
         };
 
@@ -66,6 +68,24 @@
 &none  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &none
                          &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
             >;
+        };
+
+        layer_3 {
+            bindings = <
+&none  &trans  &trans          &trans            &trans      &kp C_BRIGHTNESS_DEC    &kp C_BRIGHTNESS_INC  &trans  &trans  &trans  &trans  &none
+&none  &trans  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_UP         &trans                &trans  &trans  &trans  &trans  &none
+&none  &trans  &trans          &trans            &trans      &kp C_VOL_DN            &trans                &trans  &trans  &trans  &trans  &none
+                               &trans            &trans      &trans                  &trans                &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        layer-3 {
+            if-layers = <1>;
+            then-layer = <2>;
         };
     };
 };
