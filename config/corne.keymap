@@ -9,16 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    behaviors {
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "auto_shift";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 18 19 20 21 25 26 27 28 29 30 31 6 7 8 9 32 33 34 22 10>;
+        chosen { zmk,matrix_transform = &five_column_transform; };
+        behaviors {
+            as: auto_shift {
+                compatible = "zmk,behavior-hold-tap";
+                label = "auto_shift";
+                #binding-cells = <2>;
+                tapping-term-ms = <200>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
         };
     };
 
