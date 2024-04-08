@@ -12,20 +12,49 @@
     chosen { zmk,matrix_transform = &five_column_transform; };
 
     behaviors {
-        as: auto_shift {
+        as_ht: autoshift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "auto_shift";
+            label = "AUTOSHIFT_HOLD_TAP";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            flavor = "hold-preferred";
+            bindings = <&shift>, <&kp>;
+        };
+    };
+
+    macros {
+        shift: macro_press {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>;
+
+            label = "MACRO_PRESS";
+        };
+
+        as: as {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
+
+            label = "AS";
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        alpha_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -33,10 +62,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &as Q Q  &as W W  &as F F           &as P P  &as B B      &as J J    &as L L  &as U U                  &as Y Y                        &kp Y
-  &as A A  &as R R  &as S S           &as T T  &as G G      &as M M    &as N N  &as E E                  &as I I                        &as O O
-  &as Z Z  &as X X  &as C C           &as D D  &as V V      &as K K    &as H H  &as LESS_THAN LESS_THAN  &as GREATER_THAN GREATER_THAN  &as SLASH SLASH
-                    &kp LEFT_COMMAND  &to 1    &kp ENTER    &kp SPACE  &to 2    &kp RIGHT_ALT
+  &as Q  &as W  &as F             &as P  &as B        &as J      &as L  &as U          &as Y             &as SEMICOLON
+  &as A  &as R  &as S             &as T  &as G        &as M      &as N  &as E          &as I             &as O
+  &as Z  &as X  &as C             &as D  &as V        &as K      &as H  &as LESS_THAN  &as GREATER_THAN  &as SLASH
+                &kp LEFT_COMMAND  &to 1  &kp ENTER    &kp SPACE  &to 2  &kp RIGHT_ALT
             >;
         };
 
