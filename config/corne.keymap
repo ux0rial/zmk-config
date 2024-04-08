@@ -9,23 +9,52 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    chosen { zmk,matrix_transform = &five_column_transform; };
+
     behaviors {
-        as: auto_shift {
+        as_ht: autoshift_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "auto_shift";
+            label = "AUTOSHIFT_HOLD_TAP";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            flavor = "hold-preferred";
+            bindings = <&shift>, <&kp>;
+        };
+    };
 
-            hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 18 19 20 21 25 26 27 28 29 30 31 6 7 8 9 32 33 34 22 10>;
+    macros {
+        shift: macro_press {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>;
+
+            label = "MACRO_PRESS";
+        };
+
+        as: as {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
+
+            label = "AS";
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        alpha_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -33,10 +62,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q  &kp W  &kp F     &kp P  &kp B        &kp J    &kp L  &kp U      &kp Y    &kp SQT   &none
-&none  &kp A  &kp R  &kp S     &kp T  &kp G        &kp M    &kp N  &kp E      &kp I    &kp O     &none
-&none  &kp Z  &kp X  &kp C     &kp D  &kp V        &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH  &none
-                     &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+  &as Q  &as W  &as F             &as P  &as B        &as J      &as L  &as U          &as Y    &as SEMICOLON
+  &as A  &as R  &as S             &as T  &as G        &as M      &as N  &as E          &as I    &as O
+  &as Z  &as X  &as C             &as D  &as V        &as K      &as H  &as COMMA      &as DOT  &as SLASH
+                &kp LEFT_COMMAND  &mo 1  &kp ENTER    &kp SPACE  &mo 2  &kp RIGHT_ALT
             >;
         };
 
@@ -48,10 +77,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp N1  &kp N2  &kp N3    &kp N4  &kp N5       &kp N6         &kp N7            &kp N8    &kp N9     &kp N0  &none
-&none  &trans  &trans  &trans    &trans  &trans       &kp LEFT       &kp DOWN          &kp UP    &kp RIGHT  &trans  &trans
-&none  &trans  &trans  &trans    &trans  &trans       &trans         &trans            &trans    &trans     &trans  &trans
-                       &kp LGUI  &trans  &kp SPACE    &kp BACKSPACE  &kp LEFT_CONTROL  &kp RALT
+  &kp TAB  &kp ESCAPE  &trans          &trans     &kp EQUAL        &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
+  &as SQT  &kp LEFT    &kp UP_ARROW    &kp RIGHT  &kp BACKSPACE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_4  &kp N5        &kp NUMBER_6
+  &none    &trans      &kp DOWN_ARROW  &trans     &none            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9
+                       &trans          &trans     &trans           &kp LEFT_CONTROL      &kp LEFT_SHIFT         &kp LEFT_ALT
             >;
         };
 
@@ -63,19 +92,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCL  &kp AT          &kp HASH        &kp DLLR         &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &none
-&none  &trans    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &none
-&none  &trans    &trans          &kp DOWN_ARROW  &trans           &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &none
-                                 &kp LGUI        &trans           &kp SPACE    &kp RET    &trans     &kp RALT
+  &none   &kp EXCL  &kp AT        &kp HASH   &kp DLLR         &kp PRCNT     &kp CARET       &kp AMPS  &kp ASTRK  &kp SQT
+  &trans  &kp LEFT  &kp UP_ARROW  &kp RIGHT  &kp PAGE_UP      &kp NUMBER_0  &kp UNDERSCORE  &kp PLUS  &as MINUS  &kp EQUAL
+  &trans  &trans    &kp DOWN      &none      &kp PAGE_DOWN    &trans        &trans          &trans    &trans     &trans
+                    &none         &mo 1      &kp TAB          &none         &kp PIPE        &none
             >;
         };
 
-        layer_3 {
+        adjust-layer {
             bindings = <
-&none  &bt BT_CLR  &bt BT_SEL 0    &none             &trans      &kp C_BRIGHTNESS_DEC    &kp C_BRIGHTNESS_INC  &trans  &trans  &trans  &trans  &none
-&none  &trans      &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_UP         &trans                &trans  &trans  &trans  &trans  &none
-&none  &trans      &trans          &trans            &trans      &kp C_VOL_DN            &trans                &trans  &trans  &trans  &trans  &none
-                                   &trans            &trans      &trans                  &trans                &trans  &trans
+  &none   &bt BT_CLR      &bt BT_SEL 0      &none       &trans               &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &trans  &trans
+  &trans  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_UP      &trans                &trans                &trans  &trans  &trans
+  &trans  &trans          &trans            &none       &kp C_VOLUME_DOWN    &trans                &trans                &trans  &trans  &trans
+                          &trans            &trans      &trans               &trans                &trans                &none
             >;
         };
     };
@@ -83,7 +112,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        layer-3 {
+        adjust-layer {
             if-layers = <1 2>;
             then-layer = <3>;
         };
