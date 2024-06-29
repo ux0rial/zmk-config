@@ -61,9 +61,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &as Q  &as W  &as F             &as P  &as B        &as J      &as L  &as U          &as Y    &as SEMICOLON
-  &as A  &as R  &as S             &as T  &as G        &as M      &as N  &as E          &as I    &as O
-  &as Z  &as X  &as C             &as D  &as V        &as K      &as H  &as COMMA      &as DOT  &as SLASH
+  &kp TAB &as Q  &as W  &as F             &as P  &as B        &as J      &as L  &as U          &as Y    &as SEMICOLON &kp BACKSPACE
+  &kp LEFT_CONTROL &as A  &as R  &as S             &as T  &as G        &as M      &as N  &as E          &as I    &as O &kp SQT
+  &kp LEFT_SHIFT &as Z  &as X  &as C             &as D  &as V        &as K      &as H  &as COMMA      &as DOT  &as SLASH &kp ESCAPE
                 &kp LEFT_COMMAND  &mo 1  &kp ENTER    &kp SPACE  &mo 2  &kp RIGHT_ALT
             >;
         };
