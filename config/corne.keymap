@@ -20,6 +20,8 @@
 #include "includes/behaviours_mod_morph.dtsi"
 #include "includes/behaviours_other.dtsi"
 
+#define HAS_UROB
+
 
 / {
 
