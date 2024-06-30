@@ -10,8 +10,15 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
+// Personal includes
 #include "includes/settings.dtsi"
+#include "includes/custom_keycodes.dtsi"
+#include "includes/conditional_layers.dtsi"
+#include "includes/macros.dtsi"
+#include "includes/combos.dtsi"
 #include "includes/behaviours_homerow_mods.dtsi"
+#include "includes/behaviours_mod_morph.dtsi"
+#include "includes/behaviours_other.dtsi"
 
 
 / {
