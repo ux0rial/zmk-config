@@ -298,18 +298,7 @@
             keep-mods = <(MOD_LSFT)>;
         };
 
-        lt_num_word: lt_num_word {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-
-            #ifdef HAS_UROB
-                bindings = <&mo>, <&num_word>;
-            #else
-                bindings = <&mo>, <&tog>;
-            #endif
-        };
+        
 
 
     };
