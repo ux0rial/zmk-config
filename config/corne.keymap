@@ -4,12 +4,28 @@
  * SPDX-License-Identifier: MIT
  */
 
+
+// ZMK includes
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
+// Navigation
+#define MY_LEFT_W LA(LEFT)
+#define MY_LEFT_L LG(LEFT)
+#define MY_RIGHT_W LA(RIGHT)
+#define MY_RIGHT_L LG(RIGHT)
 
+// HYPER and MEH
+#define MY_HYPER LS(LC(LG(LALT)))
+#define MY_MEH LC(LG(LALT))
 
-// ZMK includes
+// Shortcuts
+#define MY_UNDO LG(Z)
+#define MY_REDO LS(LG(Z))
+#define MY_CUT LG(X)
+#define MY_COPY LG(C)
+#define MY_PASTE LG(V)
+
 
 #ifdef HAS_MOUSE_KEYS
 #include <dt-bindings/zmk/mouse.h>
