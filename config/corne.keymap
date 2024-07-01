@@ -113,7 +113,8 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <200>;
         };
- /*
+        
+    /*
          * Sticky shift + Caps Word
          *
          * Usage: &mm_shift_caps_word_l or &mm_shift_caps_word_r
@@ -126,7 +127,8 @@
          * Hold: Shift
          *
          * Credits to urob for this genius combo.
-         */
+    */
+
         mm_shift_caps_word_l: mm_shift_caps_word_l {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -153,13 +155,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted Backspace deletes
          *
          * Usage: &mm_bspc_del
          * Tap: Backspace
          * Shift-Tap: Delete
-         */
+    */
         mm_bspc_del: bspc_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -167,14 +169,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted Backspace deletes + Layer Tap
          *
          * Usage: &mm_bspc_del_layer
          * Tap: Backspace
          * Shift-Tap: Delete
          * Hold: Switch layer
-         */
+    */
         mm_bspc_del_layer: bspc_del_layer {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -186,7 +188,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted Space underscores + Layer Tap
          *
          * Usage: &mm_spc_unds_layer
@@ -194,7 +196,7 @@
          * LShift-Tap: -
          * RShift-Tap: _
          * Hold: Switch layer
-         */
+    */
         mm_spc_unds_layer: mod_morph_underscore {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -203,13 +205,13 @@
             keep-mods = <(MOD_LSFT)>;
         };
 
-        /*
+    /*
          * Shifted grave types caret (^)
          *
          * Usage: &mm_grave_caret
          * Tap: `
          * Shift-Tap: ^
-         */
+    */
         mm_grave_caret: mm_grave_caret {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -217,13 +219,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted plus types minus (-)
          *
          * Usage: &mm_plus_minus
          * Tap: `
          * Shift-Tap: ^
-         */
+    */
         mm_plus_minus: mm_plus_minus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -231,14 +233,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted comma types semicoln
          *
          * Usage: &mm_comma_semi
          * Tap: ,
          * Shift-Tap: ;
          * Hold: MEH
-         */
+    */
         mm_comma_semi_meh: mm_comma_semiv {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -246,19 +248,37 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /*
+    /*
          * Shifted dot types colon
          *
          * Usage: &mm_dot_colon
          * Tap: .
          * Shift-Tap: :
-         */
+    */
         mm_dot_colon: mm_dot_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+    /*
+         * Grave Escape + GUI
+         *
+         * Usage: &grescm_gui
+         * Tap: Escape
+         * LShift-Tap: ~
+         * RShift-Tap: `
+         * Hold: GUI
+    */
+        mm_grescm_gui: grave_escape_masked_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm LGUI ESCAPE>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+
 
     };
     keymap {
