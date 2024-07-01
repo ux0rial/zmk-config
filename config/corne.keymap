@@ -161,7 +161,7 @@
             #else
             bindings = <&sk LSHFT>, <&caps_word>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_shift_caps_word_r: mm_shift_caps_word_r {
@@ -175,7 +175,7 @@
             #else
             bindings = <&sk RSHFT>, <&caps_word>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -214,7 +214,7 @@
             #else
             bindings = <&lt NAV BSPC>, <&kp DEL>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -327,10 +327,10 @@
         Base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp B          &kp L         &hm_l MY_HYPER D  &kp W                &kp Z        &kp SQT             &kp F                &hm_r MY_HYPER O      &kp U         &kp J          &kp K_VOL_UP
-&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T      &hm_shift_l LSHFT S  &kp G        &kp Y               &hm_shift_r RSHFT H  &hm_r RGUI A          &hm_r RALT E  &hm_r RCTRL I  &kp K_PLAY_PAUSE
-&kp GRAVE  &kp Q          &kp X         &hm_l MY_MEH M    &kp C                &kp V        &kp K               &kp P                &hm_r MY_MEH DOT      &kp COMMA     &kp SLASH      &kp K_VOL_DN
-                                        &mm_grescm_gui    &mo 1                &lt 0 TAB    &mm_bspc_del_layer  &lt 0 RETURN         &lt_num_word NUM NUM
+&kp ESC    &kp B          &kp L         &hm_l MY_HYPER D  &kp W                &kp Z        &kp SQT             &kp F                &hm_r MY_HYPER O      &kp U         &kp J          &kp DOUBLE_QUOTES
+&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T      &hm_shift_l LSHFT S  &kp G        &kp Y               &hm_shift_r RSHFT H  &hm_r RGUI A          &hm_r RALT E  &hm_r RCTRL I  &kp SINGLE_QUOTE
+&kp GRAVE  &kp Q          &kp X         &hm_l MY_MEH M    &kp C                &kp V        &kp K               &kp P                &hm_r MY_MEH DOT      &kp COMMA     &kp SLASH      &kp SEMI
+                                        &lt 2 ESCAPE      &lt 1 ENTER          &lt 0 TAB    &mm_bspc_del_layer  &lt 0 RETURN         &lt_num_word NUM NUM
             >;
         };
 
@@ -344,7 +344,17 @@
             >;
         };
 
-        lower_layer {
+        Media_layer {
+            display-name = "Media";
+            bindings = <
+&trans  &trans     &trans    &trans    &trans     &trans    &trans      &trans            &kp C_BRIGHTNESS_INC  &kp C_BRIGHTNESS_DEC  &trans      &trans
+&trans  &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &trans    &trans      &kp C_PREV        &kp C_VOL_UP          &kp C_VOL_DN          &kp C_NEXT  &trans
+&trans  &trans     &trans    &trans    &trans     &trans    &trans      &bt BT_SEL 0      &bt BT_SEL 1          &bt BT_CLR            &trans      &trans
+                             &trans    &trans     &trans    &kp K_STOP  &kp C_PLAY_PAUSE  &kp K_MUTE
+            >;
+        };
+
+        Num_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -352,11 +362,13 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
+&trans  &kp LEFT_BRACKET  &kp N7  &kp N8         &kp N9  &kp RIGHT_BRACKET    &trans  &trans           &trans             &trans         &trans            &trans
+&trans  &kp MINUS         &kp N4  &kp N5         &kp N6  &kp EQUAL            &trans  &kp RIGHT_SHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp LEFT_CONTROL  &trans
+&trans  &kp TILDE         &kp N1  &kp N2         &kp N3  &kp BSLH             &trans  &trans           &trans             &trans         &trans            &trans
+                                  &kp LESS_THAN  &kp N0  &kp GREATER_THAN     &trans  &trans           &trans
             >;
+
+            label = "Numbers";
         };
 
         raise_layer {
@@ -381,24 +393,14 @@
 &kp C_VOLUME_DOWN  &trans      &trans           &trans  &trans  &trans                  &trans                &trans  &trans  &trans  &trans  &none
             >;
         };
-
-        Media_layer {
-            display-name = "Media";
-            bindings = <
-&trans  &trans     &trans    &trans    &trans     &trans    &trans      &trans            &kp C_BRIGHTNESS_INC  &kp C_BRIGHTNESS_DEC  &trans      &trans
-&trans  &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &trans    &trans      &kp C_PREV        &kp C_VOL_UP          &kp C_VOL_DN          &kp C_NEXT  &trans
-&trans  &trans     &trans    &trans    &trans     &trans    &trans      &bt BT_SEL 0      &bt BT_SEL 1          &bt BT_CLR            &trans      &trans
-                             &trans    &trans     &trans    &kp K_STOP  &kp C_PLAY_PAUSE  &kp K_MUTE
-            >;
-        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         adjust-layer {
-            if-layers = <2 3>;
-            then-layer = <4>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 };
