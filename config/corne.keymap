@@ -7,20 +7,16 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
-// Define layer numbers
 
-#define BASE 0
 
 // ZMK includes
 
 #ifdef HAS_MOUSE_KEYS
-
+#include <dt-bindings/zmk/mouse.h>
 #endif
 
 #ifdef HAS_PS2
-
 #include <dt-bindings/zmk/mouse_settings.h>
-
 #endif
 
 #define TD_TAPPING_TERM 300
