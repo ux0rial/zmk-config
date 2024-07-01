@@ -9,6 +9,14 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
+// Define layers number
+#define Base 0
+#define Nav 1
+#define Media 2
+#define Num 3
+#define Symbol 4
+#define FN 5
+
 // Navigation
 #define MY_LEFT_W LA(LEFT)
 #define MY_LEFT_L LG(LEFT)
