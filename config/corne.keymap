@@ -161,7 +161,7 @@
             #else
             bindings = <&sk LSHFT>, <&caps_word>;
 
-            #endif = mods,,, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_shift_caps_word_r: mm_shift_caps_word_r {
@@ -175,7 +175,7 @@
             #else
             bindings = <&sk RSHFT>, <&caps_word>;
 
-            #endif = mods,,, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -214,7 +214,7 @@
             #else
             bindings = <&lt NAV BSPC>, <&kp DEL>;
 
-            #endif = mods,,, <(MOD_LSFT|MOD_RSFT)>;
+            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -327,10 +327,10 @@
         Base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp B          &kp L         &hm_l MY_HYPER D  &kp W                &kp Z        &kp SQT             &kp F                &hm_r MY_HYPER O      &kp U         &kp J          &kp DOUBLE_QUOTES
-&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T      &hm_shift_l LSHFT S  &kp G        &kp Y               &hm_shift_r RSHFT H  &hm_r RGUI A          &hm_r RALT E  &hm_r RCTRL I  &kp SINGLE_QUOTE
-&kp GRAVE  &kp Q          &kp X         &hm_l MY_MEH M    &kp C                &kp V        &kp K               &kp P                &hm_r MY_MEH DOT      &kp COMMA     &kp SLASH      &kp SEMI
-                                        &lt 2 ESCAPE      &lt 1 ENTER          &lt 0 TAB    &mm_bspc_del_layer  &lt 0 RETURN         &lt_num_word NUM NUM
+&kp ESC    &kp B          &kp L         &hm_l MY_HYPER D  &kp W                &kp Z      &kp SQT      &kp F                &hm_r MY_HYPER O  &kp U         &kp J          &kp DOUBLE_QUOTES
+&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T      &hm_shift_l LSHFT S  &kp G      &kp Y        &hm_shift_r RSHFT H  &hm_r RGUI A      &hm_r RALT E  &hm_r RCTRL I  &kp SINGLE_QUOTE
+&kp GRAVE  &kp Q          &kp X         &hm_l MY_MEH M    &kp C                &kp V      &kp K        &kp P                &hm_r MY_MEH DOT  &kp COMMA     &kp SLASH      &kp SEMI
+                                        &lt 2 ESCAPE      &lt 1 BACKSPACE      &kp TAB    &lt 4 ENTER  &lt 3 SPACE          &lt 5 DELETE
             >;
         };
 
@@ -386,6 +386,16 @@
             >;
 
             label = "Symbols";
+        };
+
+        FN_layer {
+            label = "Function Keys";
+            bindings = <
+&trans  &trans           &kp F7  &kp F8             &kp F9     &kp F12    &trans  &trans           &trans             &trans         &trans             &trans
+&trans  &kp SCROLLLOCK   &kp F4  &kp F5             &kp F6     &kp F11    &trans  &kp RIGHT_SHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
+&trans  &kp PRINTSCREEN  &kp F1  &kp F2             &kp F3     &kp F10    &trans  &trans           &trans             &trans         &trans             &trans
+                                 &kp K_APPLICATION  &kp SPACE  &kp TAB    &trans  &trans           &trans
+            >;
         };
     };
 
