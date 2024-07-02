@@ -32,7 +32,7 @@
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <3>;
-            bindings = <&kp>, <&kp>, <&kp>;
+            bindings = <&kp N &kp R &kp T;
 
             flavor = "balanced";
             tapping-term-ms = <300>;
@@ -45,7 +45,7 @@
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <3>;
-            bindings = <&kp>, <&kp>, <&kp>;
+            bindings = <&kp A &kp E &kp I;
 
             flavor = "balanced";
             tapping-term-ms = <300>;
@@ -62,7 +62,7 @@
         hm_shift_l: hm_shift_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <1>;
-            bindings = <&kp>;
+            bindings = <&kp S>;
 
             flavor = "balanced";
             tapping-term-ms = <200>;
@@ -75,7 +75,7 @@
         hm_shift_r: hm_shift_r {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <1>;
-            bindings = <&kp>;
+            bindings = <&kp H>;
 
             flavor = "balanced";
             tapping-term-ms = <200>;
