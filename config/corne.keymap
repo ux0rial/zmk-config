@@ -149,7 +149,6 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <200>;
@@ -175,13 +174,12 @@
             #binding-cells = <0>;
 
             #ifdef HAS_CAPSLOCK
-
-            bindings = <&sk LSHFT>, <&caps_word_capslock>;
-
+                bindings = <&sk LSHFT>, <&caps_word_capslock>;
             #else
-            bindings = <&sk LSHFT>, <&caps_word>;
+                bindings = <&sk LSHFT>, <&caps_word>;
+            #endif
 
-            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_shift_caps_word_r: mm_shift_caps_word_r {
@@ -189,13 +187,12 @@
             #binding-cells = <0>;
 
             #ifdef HAS_CAPSLOCK
-
-            bindings = <&sk RSHFT>, <&caps_word_capslock>;
-
+                bindings = <&sk RSHFT>, <&caps_word_capslock>;
             #else
-            bindings = <&sk RSHFT>, <&caps_word>;
+                bindings = <&sk RSHFT>, <&caps_word>;
+            #endif
 
-            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -228,13 +225,12 @@
             #binding-cells = <0>;
 
             #ifdef HAS_PS2
-
-            bindings = <&lt 0 BSPC>, <&kp DEL>;
-
+                bindings = <&lt 0 BSPC>, <&kp DEL>;
             #else
-            bindings = <&lt NAV BSPC>, <&kp DEL>;
+                bindings = <&lt NAV BSPC>, <&kp DEL>;
+            #endif
 
-            #endif = mods,,,, <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
