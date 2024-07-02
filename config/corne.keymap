@@ -44,7 +44,7 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-            hold-trigger-key-positions = <KEYS_N KEYS_R KEYS_T>;
+            hold-trigger-key-positions = <13 14 15>;
 
         };
 
@@ -57,7 +57,7 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-            hold-trigger-key-positions = <KEYS_A KEYS_E KEYS_I>;
+            hold-trigger-key-positions = <20 21 22>;
 
         };
 
@@ -74,7 +74,7 @@
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-            hold-trigger-key-positions = <KEYS_S;
+            hold-trigger-key-positions = <16>;
 
         };
 
@@ -87,7 +87,7 @@
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-            hold-trigger-key-positions = <KEYS_H;
+            hold-trigger-key-positions = <19>;
 
         };
 
