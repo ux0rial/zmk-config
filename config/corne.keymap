@@ -95,6 +95,12 @@
 
             // hold-trigger-on-release;
         };
+
+        
+        &lt {
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+        };
     };
 
     keymap {
