@@ -90,11 +90,6 @@
             hold-trigger-key-positions = <19>;
 
         };
-
-        
-        &lt {
-            quick-tap-ms = <200>;
-        };
     };
 
     keymap {
