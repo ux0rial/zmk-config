@@ -23,10 +23,8 @@
 
 
 // Personal includes
-#include "includes/custom_keycodes.dtsi"
 #include "includes/settings.dtsi"
 #include "includes/behaviours_homerow_mods.dtsi"
-#include "includes/behaviours_mod_morph.dtsi"
 #include "includes/behaviours_other.dtsi"
 
 
