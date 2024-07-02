@@ -3,13 +3,13 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
-
 // ZMK includes
+
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
 // Define layers number
+
 #define Base 0
 #define Nav 1
 #define Media 2
@@ -18,29 +18,33 @@
 #define FN 5
 
 // Navigation
+
 #define MY_LEFT_W LA(LEFT)
 #define MY_LEFT_L LG(LEFT)
 #define MY_RIGHT_W LA(RIGHT)
 #define MY_RIGHT_L LG(RIGHT)
 
 // HYPER and MEH
+
 #define MY_HYPER LS(LC(LG(LALT)))
 #define MY_MEH LC(LG(LALT))
 
 // Shortcuts
+
 #define MY_UNDO LG(Z)
 #define MY_REDO LS(LG(Z))
 #define MY_CUT LG(X)
 #define MY_COPY LG(C)
 #define MY_PASTE LG(V)
 
-
 #ifdef HAS_MOUSE_KEYS
-#include <dt-bindings/zmk/mouse.h>
+
 #endif
 
 #ifdef HAS_PS2
+
 #include <dt-bindings/zmk/mouse_settings.h>
+
 #endif
 
 #define TD_TAPPING_TERM 300
@@ -149,6 +153,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
+
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <200>;
@@ -174,12 +179,13 @@
             #binding-cells = <0>;
 
             #ifdef HAS_CAPSLOCK
-                bindings = <&sk LSHFT>, <&caps_word_capslock>;
-            #else
-                bindings = <&sk LSHFT>, <&caps_word>;
-            #endif
 
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&sk LSHFT>, <&caps_word_capslock>;
+
+            #else
+            bindings = <&sk LSHFT>, <&caps_word>;
+
+            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_shift_caps_word_r: mm_shift_caps_word_r {
@@ -187,12 +193,13 @@
             #binding-cells = <0>;
 
             #ifdef HAS_CAPSLOCK
-                bindings = <&sk RSHFT>, <&caps_word_capslock>;
-            #else
-                bindings = <&sk RSHFT>, <&caps_word>;
-            #endif
 
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&sk RSHFT>, <&caps_word_capslock>;
+
+            #else
+            bindings = <&sk RSHFT>, <&caps_word>;
+
+            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -225,12 +232,13 @@
             #binding-cells = <0>;
 
             #ifdef HAS_PS2
-                bindings = <&lt 0 BSPC>, <&kp DEL>;
-            #else
-                bindings = <&lt NAV BSPC>, <&kp DEL>;
-            #endif
 
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&lt 0 BSPC>, <&kp DEL>;
+
+            #else
+            bindings = <&lt NAV BSPC>, <&kp DEL>;
+
+            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -343,10 +351,10 @@
         Base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp B          &kp L         &hm_l MY_HYPER D  &kp W                &kp Z      &kp SQT      &kp F                &hm_r MY_HYPER O  &kp U         &kp J          &kp DOUBLE_QUOTES
-&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T      &hm_shift_l LSHFT S  &kp G      &kp Y        &hm_shift_r RSHFT H  &hm_r RGUI A      &hm_r RALT E  &hm_r RCTRL I  &kp SINGLE_QUOTE
-&kp GRAVE  &kp Q          &kp X         &hm_l MY_MEH M    &kp C                &kp V      &kp K        &kp P                &hm_r MY_MEH DOT  &kp COMMA     &kp SLASH      &kp SEMI
-                                        &lt 2 ESCAPE      &lt 1 BACKSPACE      &kp TAB    &lt 4 ENTER  &lt 3 SPACE          &lt 5 DELETE
+&kp ESC    &kp B          &kp L         &kp D         &kp W                &kp Z      &kp SQT      &kp F                &kp O         &kp U         &kp J          &kp DOUBLE_QUOTES
+&kp CAPS   &hm_l LCTRL N  &hm_l LALT R  &hm_l LGUI T  &hm_shift_l LSHFT S  &kp G      &kp Y        &hm_shift_r RSHFT H  &hm_r RGUI A  &hm_r RALT E  &hm_r RCTRL I  &kp SINGLE_QUOTE
+&kp GRAVE  &kp Q          &kp X         &kp M         &kp C                &kp V      &kp K        &kp P                &kp R         &kp COMMA     &kp SLASH      &kp SEMI
+                                        &lt 2 ESCAPE  &lt 1 BACKSPACE      &kp TAB    &lt 4 ENTER  &lt 3 SPACE          &lt 5 DELETE
             >;
         };
 
