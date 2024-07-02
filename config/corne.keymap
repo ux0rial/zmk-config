@@ -185,7 +185,9 @@
             #else
             bindings = <&sk LSHFT>, <&caps_word>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif 
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_shift_caps_word_r: mm_shift_caps_word_r {
@@ -199,7 +201,9 @@
             #else
             bindings = <&sk RSHFT>, <&caps_word>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
@@ -238,7 +242,9 @@
             #else
             bindings = <&lt NAV BSPC>, <&kp DEL>;
 
-            #endif = mods, <(MOD_LSFT|MOD_RSFT)>;
+            #endif
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         /*
