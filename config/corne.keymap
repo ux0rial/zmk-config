@@ -94,7 +94,6 @@
         
         &lt {
             quick-tap-ms = <200>;
-            flavor = "balanced";
         };
     };
 
