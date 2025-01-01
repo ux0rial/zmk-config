@@ -46,10 +46,10 @@
 
         base {
             bindings = <
-&kp B                 &kp L             &kp D                 &kp W                        &kp V        &kp J        &kp F                &kp O                  &kp U              &kp SQT
-&hm_r LEFT_CONTROL N  &hm_l LEFT_ALT R  &hm_l LEFT_COMMAND T  &hm_l LEFT_SHIFT S           &kp G        &kp Y        &hm_r RIGHT_SHIFT H  &hm_r RIGHT_COMMAND A  &hm_r RIGHT_ALT E  &hm_r RIGHT_CONTROL I
-&kp X                 &kp Q             &kp M                 &kp C                        &kp Z        &kp K        &kp P                &kp DOT                &kp SEMI           &kp COMMA
-                                                              &hm_l LG(LS(LC(LALT))) BSPC  &lt 1 TAB    &lt 3 ENTER  &lt 2 SPACE
+&kp B                 &kp L             &kp D                 &kp W               &kp V                            &kp J        &kp F                &kp O                  &kp U              &kp SQT
+&hm_r LEFT_CONTROL N  &hm_l LEFT_ALT R  &hm_l LEFT_COMMAND T  &hm_l LEFT_SHIFT S  &kp G                            &kp Y        &hm_r RIGHT_SHIFT H  &hm_r RIGHT_COMMAND A  &hm_r RIGHT_ALT E  &hm_r RIGHT_CONTROL I
+&kp X                 &kp Q             &kp M                 &kp C               &kp Z                            &kp K        &kp P                &kp DOT                &kp SEMI           &kp COMMA
+                                                              &lt 1 BSPC          &hm_l LG(LC(LS(LALT))) ESCAPE    &lt 3 ENTER  &lt 2 SPACE
             >;
         };
 
@@ -58,7 +58,7 @@
 &kp INS     &kp N1  &kp N2  &kp N3  &trans    &kp HOME  &kp PG_DN   &kp PG_UP  &kp END    &kp COLON
 &kp DEL     &kp N4  &kp N5  &kp N6  &trans    &kp LEFT  &kp DOWN    &kp UP     &kp RIGHT  &kp SEMI
 &caps_word  &kp N7  &kp N8  &kp N9  &kp N0    &trans    &trans      &trans     &trans     &trans
-                            &trans  &trans    &trans    &kp ESCAPE
+                            &trans  &trans    &kp TAB   &kp ESCAPE
             >;
         };
 
@@ -67,7 +67,7 @@
 &trans    &kp LBKT       &kp LBRC  &kp RBRC          &trans       &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT  &kp TILDE
 &kp EXCL  &kp AT         &kp HASH  &kp DLLR          &kp PRCNT    &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
 &trans    &kp LESS_THAN  &trans    &kp GREATER_THAN  &trans       &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE  &kp SLASH
-                                   &kp ESCAPE        &trans       &trans     &trans
+                                   &kp ESCAPE        &kp TAB      &trans     &trans
             >;
         };
 
