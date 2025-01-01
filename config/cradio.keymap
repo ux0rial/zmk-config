@@ -46,10 +46,10 @@
 
         base {
             bindings = <
-&kp B                 &kp L             &kp D                 &kp W               &kp V        &kp J        &kp F                &kp O                  &kp U              &kp SQT
-&hm_r LEFT_CONTROL N  &hm_l LEFT_ALT R  &hm_l LEFT_COMMAND T  &hm_l LEFT_SHIFT S  &kp G        &kp Y        &hm_r RIGHT_SHIFT H  &hm_r RIGHT_COMMAND A  &hm_r RIGHT_ALT E  &hm_r RIGHT_CONTROL I
-&kp X                 &kp Q             &kp M                 &kp C               &kp Z        &kp K        &kp P                &kp DOT                &kp SEMI           &kp COMMA
-                                                              &lt 2 BACKSPACE     &lt 1 TAB    &lt 3 ENTER  &kp SPACE
+&kp B                 &kp L             &kp D                 &kp W                        &kp V        &kp J        &kp F                &kp O                  &kp U              &kp SQT
+&hm_r LEFT_CONTROL N  &hm_l LEFT_ALT R  &hm_l LEFT_COMMAND T  &hm_l LEFT_SHIFT S           &kp G        &kp Y        &hm_r RIGHT_SHIFT H  &hm_r RIGHT_COMMAND A  &hm_r RIGHT_ALT E  &hm_r RIGHT_CONTROL I
+&kp X                 &kp Q             &kp M                 &kp C                        &kp Z        &kp K        &kp P                &kp DOT                &kp SEMI           &kp COMMA
+                                                              &hm_l LG(LS(LC(LALT))) BSPC  &lt 1 TAB    &lt 3 ENTER  &lt 2 SPACE
             >;
         };
 
